@@ -4,7 +4,6 @@ CMD /bin/mkdir /www
 OVERLAY usr
 OVERLAY www
 CMD chmod +x /usr/local/etc/rc.d/emmett
-#CMD /usr/bin/cd /www
 CMD /usr/local/bin/python3.8 -m venv /www/venv
 CMD source /www/venv/bin/activate.csh
 CMD /www/venv/bin/pip install pip setuptools -U

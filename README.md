@@ -14,6 +14,12 @@ service emmett restart
 ```
 The service listens on port 8000
 
+
+**Warning**
+**This is for proof of concept**
+
+I have to see how to copy a real application from the host to the jail
+
 Fetch and apply this template with:
 
 ```
