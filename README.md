@@ -1,5 +1,5 @@
 # bastille-emmett
-Bastille template to Emmett Framework
+Bastille template for Emmett Framework
 
 Emmett Framework is an awesome framework for developing web applications [https://emmett.sh/] written in python
 
