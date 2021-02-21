@@ -1,9 +1,17 @@
 #!/bin/sh
 
+# PROVIDE: emmett
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
 . /etc/rc.subr
 
-name=emmett
-rcvar=emmett_enable
+name="emmett"
+rcvar="emmett_enable"
+
+
+load_rc_config $name
+: ${emmett_enable:=no}
 
 command="/www/venv/bin/${name}"
 command_args="-a /www/src/app.py serve"
@@ -11,10 +19,7 @@ pidfile="/var/run/${name}.pid"
 
 start_cmd="${name}_start"
 stop_cmd="${name}_stop"
-restart_cmd="${name}_restart"
-
-load_rc_config $name
-: ${emmett_enable:=no}
+restart_cmd="${name}_stop && ${name}_start"
 
 emmett_start()
 {
@@ -35,7 +40,6 @@ emmett_restart(){
     emmett_stop
     emmett_start
 }
-
 
 load_rc_config $name
 run_rc_command "$1"
