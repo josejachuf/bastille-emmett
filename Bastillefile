@@ -1,5 +1,3 @@
-ARG MONGODB_VERSION
-
 PKG python38
 CMD /bin/mkdir /www
 
@@ -9,8 +7,9 @@ CMD chmod +x /usr/local/etc/rc.d/emmett
 #CMD /usr/bin/cd /www
 CMD /usr/local/bin/python3.8 -m venv /www/venv
 CMD source /www/venv/bin/activate.csh
+CMD /www/venv/bin/pip install pip setuptools -U
 CMD /www/venv/bin/pip install -r /www/src/requirements.txt
 CMD deactivate
 
-#SYSRC emmett_enable=YES
-#SERVICE emmett start
+SYSRC emmett_enable=YES
+SERVICE emmett start
